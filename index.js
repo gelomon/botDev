@@ -155,7 +155,7 @@ function select(sender){
 	  			console.log(rows);
 	  			res = rows;
             
-	  			//sendDBResponse(sender,res);
+	  			sendDBResponse(sender,res);
 	  		}
 	  	});
 	  
