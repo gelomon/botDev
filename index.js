@@ -66,14 +66,16 @@ const token = process.env.FB_PAGE_ACCESS_TOKEN
 
 function sendTextMessage(sender, text) {
 	let messageData = { text:text }
+	let recipientData = { id: sender }
+	let senderData = { id: process.env.FB_PAGE_ID }
 	
 	request({
 		url: 'https://graph.facebook.com/v2.8/me/messages',
 		qs: {access_token:token},
 		method: 'POST',
 		json: {
-			sender: process.env.FB_PAGE_ID, 
-			recipient: sender,
+			sender: senderData, 
+			recipient: recipientData,
 			message: messageData,
 		}
 	}, function(error, response, body) {
@@ -86,6 +88,9 @@ function sendTextMessage(sender, text) {
 }
 
 function sendGenericMessage(sender) {
+
+	let recipientData = { id: sender }
+	let senderData = { id: process.env.FB_PAGE_ID }
 	let messageData = {
 		"attachment": {
 			"type": "template",
@@ -122,8 +127,8 @@ function sendGenericMessage(sender) {
 		qs: {access_token:token},
 		method: 'POST',
 		json: {
-			sender: process.env.FB_PAGE_ID, 
-			recipient: sender,
+			sender: senderData, 
+			recipient: recipientData,
 			message: messageData,
 		}
 	}, function(error, response, body) {
@@ -177,14 +182,17 @@ function sendDBResponse(sender, res) {
         resTxt += "\n" + (1 + i) + ". " + res[i].task + ""; 
     }
 
-   let messageData = { text:resTxt }
+	let messageData = { text:resTxt }
+	let recipientData = { id: sender }
+	let senderData = { id: process.env.FB_PAGE_ID }
+
     request({
         url: 'https://graph.facebook.com/v2.8/me/messages',
         qs: {access_token:token},
         method: 'POST',
         json: {
-        	sender: process.env.FB_PAGE_ID, 
-            recipient: sender,
+        	sender: senderData, 
+            recipient: recipientData,
             message: messageData,
         }
     }, function(error, response, body) {
