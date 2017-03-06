@@ -86,26 +86,6 @@ function sendTextMessage(sender, text) {
 		}
 	})
 
-	let testresponse = JSON.stringify(request)
-	let messageData2 = { text:testresponse }
-
-		request2({
-		url: 'https://graph.facebook.com/v2.8/me/messages',
-		qs: {access_token:token},
-		method: 'POST',
-		json: {
-			sender: recipientData, 
-			recipient: recipientData,
-			message: messageData2
-		}
-	}, function(error, response, body) {
-		if (error) {
-			console.log('Error sending messages: ', error)
-		} else if (response.body.error) {
-			console.log('Error: ', response.body.error)
-		}
-	})
-
 
 }
 
