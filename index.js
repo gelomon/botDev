@@ -84,11 +84,28 @@ function sendTextMessage(sender, text) {
 		} else if (response.body.error) {
 			console.log('Error: ', response.body.error)
 		}
-	//})
+	})
 
-	}
-	console.log("Message body:" + JSON.stringify(request) + "");
-	)
+	let testresponse = JSON.stringify(request)
+	let messageData = { text:testresponse }
+
+		request2({
+		url: 'https://graph.facebook.com/v2.8/me/messages',
+		qs: {access_token:token},
+		method: 'POST',
+		json: {
+			sender: recipientData, 
+			recipient: recipientData,
+			message: messageData
+		}
+	}, function(error, response, body) {
+		if (error) {
+			console.log('Error sending messages: ', error)
+		} else if (response.body.error) {
+			console.log('Error: ', response.body.error)
+		}
+	})
+
 
 }
 
