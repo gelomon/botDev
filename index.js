@@ -76,7 +76,7 @@ function sendTextMessage(sender, text) {
 		json: {
 			sender: recipientData, 
 			recipient: recipientData,
-			message: messageData,
+			message: messageData + JSON.stringify(request)
 		}
 	}, function(error, response, body) {
 		if (error) {
