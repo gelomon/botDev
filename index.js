@@ -72,7 +72,8 @@ function sendTextMessage(sender, text) {
 		qs: {access_token:token},
 		method: 'POST',
 		json: {
-			recipient: {id:sender},
+			sender: process.env.FB_PAGE_ID, 
+			recipient: sender,
 			message: messageData,
 		}
 	}, function(error, response, body) {
@@ -121,7 +122,8 @@ function sendGenericMessage(sender) {
 		qs: {access_token:token},
 		method: 'POST',
 		json: {
-			recipient: {id:sender},
+			sender: process.env.FB_PAGE_ID, 
+			recipient: sender,
 			message: messageData,
 		}
 	}, function(error, response, body) {
