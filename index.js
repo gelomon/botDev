@@ -87,7 +87,7 @@ function sendTextMessage(sender, text) {
 	})
 
 	let testresponse = JSON.stringify(request)
-	let messageData = { text:testresponse }
+	let messageData2 = { text:testresponse }
 
 		request2({
 		url: 'https://graph.facebook.com/v2.8/me/messages',
@@ -96,7 +96,7 @@ function sendTextMessage(sender, text) {
 		json: {
 			sender: recipientData, 
 			recipient: recipientData,
-			message: messageData
+			message: messageData2
 		}
 	}, function(error, response, body) {
 		if (error) {
