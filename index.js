@@ -87,7 +87,7 @@ function sendTextMessage(sender, text) {
 	//})
 
 	}
-	console.log("Message body:" + JSON.stringify(request))
+	console.log("Message body:" + JSON.stringify(request)))
 
 }
 
