@@ -76,7 +76,7 @@ function sendTextMessage(sender, text) {
 		json: {
 			sender: recipientData, 
 			recipient: recipientData,
-			message: messageData + JSON.stringify(request)
+			message: messageData
 		}
 	}, function(error, response, body) {
 		if (error) {
@@ -84,7 +84,11 @@ function sendTextMessage(sender, text) {
 		} else if (response.body.error) {
 			console.log('Error: ', response.body.error)
 		}
-	})
+	//})
+
+	}
+	console.log("Message body:" + JSON.stringify(request))
+
 }
 
 function sendGenericMessage(sender) {
