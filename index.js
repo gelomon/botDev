@@ -74,7 +74,7 @@ function sendTextMessage(sender, text) {
 		qs: {access_token:token},
 		method: 'POST',
 		json: {
-			sender: senderData, 
+			sender: recipientData, 
 			recipient: recipientData,
 			message: messageData,
 		}
@@ -127,7 +127,7 @@ function sendGenericMessage(sender) {
 		qs: {access_token:token},
 		method: 'POST',
 		json: {
-			sender: senderData, 
+			sender: recipientData, 
 			recipient: recipientData,
 			message: messageData,
 		}
@@ -191,7 +191,7 @@ function sendDBResponse(sender, res) {
         qs: {access_token:token},
         method: 'POST',
         json: {
-        	sender: senderData, 
+        	sender: recipientData, 
             recipient: recipientData,
             message: messageData,
         }
